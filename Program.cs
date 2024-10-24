@@ -6,7 +6,6 @@ using AuctionWebApi.Infrastructure.Interfaces;
 using AuctionWebApi.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
-// FIXED TEAMLEAD'S MISTAKE!!!
 namespace AuctionWebApi
 {
     public class Program
