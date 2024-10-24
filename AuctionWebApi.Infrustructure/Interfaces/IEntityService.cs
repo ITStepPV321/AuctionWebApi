@@ -6,6 +6,6 @@
         Dto GetById(int id);
         void Create(CreateDto createDto);
         void Update(Dto dto);
-        void Delete(int id);
+        void Delete(Dto dto);
     }
 }

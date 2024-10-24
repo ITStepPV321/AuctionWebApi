@@ -6,10 +6,12 @@ namespace AuctionWebApi.Core.Initializers
 {
     public class InvoiceInitializer : IDbInitializer<Invoice>
     {
-        // TODO: Додати ініціялізацію (заповнення) чеків
         public static void Initialize(EntityTypeBuilder<Invoice> builder)
         {
-            // LOGIC
+            builder.HasData(
+                new Invoice { Id = 1, Date = DateTime.Now.AddDays(-1), UserId = "1", ProductId = 1 },
+                new Invoice { Id = 2, Date = DateTime.Now, UserId = "2", ProductId = 2 }
+            );
         }
     }
 }

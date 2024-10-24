@@ -3642,7 +3642,7 @@
       "projectName": "AuctionWebApi",
       "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj",
       "packagesPath": "C:\\Users\\semen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\obj\\",
+      "outputPath": "C:\\Users\\semen\\source\\repos\\AuctionWebApi\\AuctionWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

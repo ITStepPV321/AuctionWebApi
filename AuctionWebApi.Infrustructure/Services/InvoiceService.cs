@@ -46,7 +46,7 @@ namespace AuctionWebApi.Infrastructure.Services
         }
 
         // TODO: Видалити чек
-        public void Delete(int id)
+        public void Delete(InvoiceDto dto)
         {
             // LOGIC
             throw new NotImplementedException();
