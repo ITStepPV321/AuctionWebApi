@@ -35,7 +35,7 @@ namespace AuctionWebApi.Controllers
         }
 
         // TODO: Реєстрація нового учасника аукціону
-        [HttpPost]
+        [HttpPost("register")]
         public IActionResult RegisterPost([FromBody] string value)
         {
             // Logic
@@ -44,6 +44,7 @@ namespace AuctionWebApi.Controllers
         }
 
         // TODO: Вхід учасника аукціону в систему (Створення сесії)
+        [HttpPost("login")]
         public IActionResult LoginPost([FromBody] string value)
         {
             // Logic
@@ -52,6 +53,7 @@ namespace AuctionWebApi.Controllers
         }
 
         // TODO: Вихід учасника аукціону із системи (Видалення сесії)
+        [HttpPost("logout")]
         public IActionResult LogoutPost([FromBody] string value)
         {
             // Logic

@@ -12,3 +12,4 @@ C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\refint\AuctionWe
 C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.pdb
 C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.genruntimeconfig.cache
 C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\ref\AuctionWebApi.Core.dll
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.sourcelink.json

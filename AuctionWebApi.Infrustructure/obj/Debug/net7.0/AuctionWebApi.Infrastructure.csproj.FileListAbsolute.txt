@@ -13,3 +13,4 @@ C:\Users\swime\source\repos\AuctionWebApi.Infrustructure\bin\Debug\net7.0\Auctio
 C:\Users\swime\source\repos\AuctionWebApi.Infrustructure\bin\Debug\net7.0\AuctionWebApi.Core.pdb
 C:\Users\swime\source\repos\AuctionWebApi.Infrustructure\obj\Debug\net7.0\AuctionWebApi.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\swime\source\repos\AuctionWebApi.Infrustructure\obj\Debug\net7.0\AuctionW.E7824398.Up2Date
+C:\Users\swime\source\repos\AuctionWebApi.Infrustructure\obj\Debug\net7.0\AuctionWebApi.Infrastructure.sourcelink.json
