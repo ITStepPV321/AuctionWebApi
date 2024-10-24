@@ -1,11 +1,12 @@
 ﻿using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Core.Initializers;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AuctionWebApi.Core.Data
 {
-    public class AuctionDbContext : DbContext
+    public class AuctionDbContext : IdentityDbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -14,7 +15,7 @@ namespace AuctionWebApi.Core.Data
 
         public AuctionDbContext(DbContextOptions<AuctionDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
