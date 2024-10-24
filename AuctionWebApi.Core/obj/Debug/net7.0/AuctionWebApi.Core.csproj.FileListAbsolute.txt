@@ -1,0 +1,14 @@
+C:\Users\swime\source\repos\AuctionWebApi.Core\bin\Debug\net7.0\AuctionWebApi.Core.deps.json
+C:\Users\swime\source\repos\AuctionWebApi.Core\bin\Debug\net7.0\AuctionWebApi.Core.runtimeconfig.json
+C:\Users\swime\source\repos\AuctionWebApi.Core\bin\Debug\net7.0\AuctionWebApi.Core.dll
+C:\Users\swime\source\repos\AuctionWebApi.Core\bin\Debug\net7.0\AuctionWebApi.Core.pdb
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.csproj.AssemblyReference.cache
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.AssemblyInfoInputs.cache
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.AssemblyInfo.cs
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.csproj.CoreCompileInputs.cache
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.dll
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\refint\AuctionWebApi.Core.dll
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.pdb
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\AuctionWebApi.Core.genruntimeconfig.cache
+C:\Users\swime\source\repos\AuctionWebApi.Core\obj\Debug\net7.0\ref\AuctionWebApi.Core.dll
