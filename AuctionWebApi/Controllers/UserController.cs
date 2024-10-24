@@ -1,4 +1,6 @@
-﻿using AuctionWebApi.Infrastructure.Interfaces;
+﻿using AuctionWebApi.Infrastructure.DTOs;
+using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionWebApi.Controllers
@@ -16,65 +18,65 @@ namespace AuctionWebApi.Controllers
 
         // ACHTUNG: Наступні дії робити лише завдяки сервісу!!!
 
-        // TODO: Отримання усіх учасників аукціону
+        // REVIEW: Отримання усіх учасників аукціону
         [HttpGet]
         public IActionResult Get()
         {
-            // Logic
+            List<UserDto> users = _userService.GetAll();
 
-            return Ok();
+            return Ok(users);
         }
 
-        // TODO: Отримання учасника аукціону за Id
+        // REVIEW: Отримання учасника аукціону за Id
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
-            // Logic
+            UserDto user = _userService.GetById(id);
 
-            return Ok();
+            return Ok(user);
         }
 
-        // TODO: Реєстрація нового учасника аукціону
+        // REVIEW: Реєстрація нового учасника аукціону
         [HttpPost("register")]
-        public IActionResult RegisterPost([FromBody] string value)
+        public IActionResult RegisterPost([FromBody] CreateUserDto userDto)
         {
-            // Logic
+            _userService.Register(userDto);
 
             return Ok();
         }
 
-        // TODO: Вхід учасника аукціону в систему (Створення сесії)
+        // REVIEW: Вхід учасника аукціону в систему (Створення сесії)
         [HttpPost("login")]
-        public IActionResult LoginPost([FromBody] string value)
+        public IActionResult LoginPost([FromBody] UserDto userDto)
         {
-            // Logic
+            _userService.Login(userDto);
 
             return Ok();
         }
 
-        // TODO: Вихід учасника аукціону із системи (Видалення сесії)
+        // REVIEW: Вихід учасника аукціону із системи (Видалення сесії)
         [HttpPost("logout")]
-        public IActionResult LogoutPost([FromBody] string value)
+        public IActionResult LogoutPost()
         {
-            // Logic
+            _userService.Logout();
 
             return Ok();
         }
 
-        // TODO: Редагування учасника аукціону
+        // REVIEW: Редагування учасника аукціону
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] string value)
+        public IActionResult Put([FromBody] UserDto user)
         {
-            // Logic
+            _userService.Update(user);
 
             return Ok();
         }
 
-        // TODO: Видалення учасника аукціону
+        // REVIEW: Видалення учасника аукціону
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
-            // Logic
+            _userService.Delete(id);
 
             return Ok();
         }

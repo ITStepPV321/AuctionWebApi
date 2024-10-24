@@ -1,8 +1,11 @@
 ﻿using AuctionWebApi.Core.Data;
+using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
@@ -10,46 +13,78 @@ namespace AuctionWebApi.Infrastructure.Services
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public UserService(AuctionDbContext context, IMapper mapper)
+        public UserService(AuctionDbContext context, IMapper mapper, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        // TODO: Отримати усіх користувачів
+        // REVIEW: Отримати усіх користувачів
         public List<UserDto> GetAll()
         {
-            // LOGIC
-            throw new NotImplementedException();
+            DbSet<User> users = _context.Users;
+
+            return _mapper.Map<List<UserDto>>(users);
         }
 
-        // TODO: Отримати користувача за Id
-        public List<UserDto> GetById(string id)
+        // REVIEW: Отримати користувача за Id
+        public UserDto GetById(string id)
         {
-            // LOGIC
-            throw new NotImplementedException();
+            User user = _context.Users.FirstOrDefault(user => user.Id == id)!;
+
+            return _mapper.Map<UserDto>(user);
         }
 
-        // TODO: Створити нового користувача
-        public void Create(CreateUserDto userDto)
+        // REVIEW: Створити нового користувача
+        public async Task Register(CreateUserDto userDto)
         {
-            // LOGIC
-            throw new NotImplementedException();
+            User user = _mapper.Map<User>(userDto);
+
+            await _userManager.CreateAsync(user, userDto.Password);
         }
 
-        // TODO: Редагувати користувача
-        public void Update(UserDto userDto)
+        // TODO: Вхід користувача
+        public async Task Login(UserDto userDto)
         {
-            // LOGIC
-            throw new NotImplementedException();
+            User user = _mapper.Map<User>(userDto);
+
+            await _signInManager.SignInAsync(user, true);
+
+            // TODO: JWT токен
+        }
+
+        // REVIEW: Вихід користувача
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
+        // REVIEW: Редагувати користувача
+        public async Task Update(UserDto userDto)
+        {
+            User user = _mapper.Map<User>(userDto);
+
+            if (user == null)
+            {
+                throw new Exception("User cannot be null");
+            }
+
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
 
         // TODO: Видалити користувача за Id
-        public void Delete(int id)
+        public async Task Delete(string id)
         {
-            // LOGIC
-            throw new NotImplementedException();
+            User user = _context.Users.Find(id)!;
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
         }
     }
 }
