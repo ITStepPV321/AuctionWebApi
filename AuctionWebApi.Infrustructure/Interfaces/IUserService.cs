@@ -6,9 +6,11 @@ namespace AuctionWebApi.Infrastructure.Interfaces
     public interface IUserService
     {
         List<UserDto> GetAll();
-        List<UserDto> GetById(string id);
-        void Create(CreateUserDto userDto);
-        void Update(UserDto userDto);
-        void Delete(int id);
+        UserDto GetById(string id);
+        Task Register(CreateUserDto userDto);
+        Task Login(UserDto userDto);
+        Task Logout();
+        Task Update(UserDto userDto);
+        Task Delete(string id);
     }
 }

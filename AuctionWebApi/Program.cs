@@ -1,9 +1,11 @@
 using AuctionWebApi.Core.Data;
+using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.Helpers;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AuctionWebApi.Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionWebApi
@@ -32,6 +34,7 @@ namespace AuctionWebApi
             builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto>, ProductService>();
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto>, AuctionService>();
             builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto>, InvoiceService>();
+            builder.Services.AddScoped<UserManager<User>>();
 
             builder.Services.AddAutoMapper(typeof(MapperProfile));
 
