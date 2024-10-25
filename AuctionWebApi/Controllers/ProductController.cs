@@ -2,6 +2,7 @@
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 
 namespace AuctionWebApi.Controllers
 {
@@ -10,10 +11,11 @@ namespace AuctionWebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IEntityService<CreateProductDto, ProductDto> _productService;
-
-        public ProductController(IEntityService<CreateProductDto, ProductDto> productService)
+        private readonly IMapper _mapper;
+        public ProductController(IEntityService<CreateProductDto, ProductDto> productService, IMapper mapper)
         {
             _productService = productService;
+            _mapper = mapper;
         }
 
         // ACHTUNG: Наступні дії робити лише завдяки сервісу!!!
@@ -23,7 +25,7 @@ namespace AuctionWebApi.Controllers
         public IActionResult Get()
         {
             // LOGIC
-
+            List<ProductDto> products = _productService.GetAll();
             return Ok();
         }
 
@@ -32,25 +34,25 @@ namespace AuctionWebApi.Controllers
         public IActionResult Get(int id)
         {
             // LOGIC
-
-            return Ok();
+            ProductDto product = _productService.GetById(id);
+            return Ok(product);
         }
 
         // TODO: Створення товару
         [HttpPost]
-        public IActionResult Post([FromBody] string value)
+        public IActionResult Post([FromBody] CreateProductDto newProduct)
         {
             // LOGIC
-
+            ProductDto productDto = _mapper.Map<ProductDto>(newProduct);
             return Ok();
         }
 
         // TODO: Редагування товару
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] string value)
+        public IActionResult Put( [FromBody] ProductDto updatedProduct)
         {
             // LOGIC
-
+            _productService.Update(updatedProduct);
             return Ok();
         }
 
@@ -59,7 +61,8 @@ namespace AuctionWebApi.Controllers
         public IActionResult Delete(int id)
         {
             // LOGIC
-
+            ProductDto productDto = _productService.GetById(id);
+            _productService.Delete(productDto);
             return Ok();
         }
     }

@@ -176,8 +176,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newProduct",
-        "Type": "AuctionWebApi.Infrastructure.DTOs.Create.CreateProductDto",
+        "Name": "value",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -208,13 +208,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updatedProduct",
-        "Type": "AuctionWebApi.Infrastructure.DTOs.ProductDto",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "id",
-        "Type": "",
+        "Name": "value",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
