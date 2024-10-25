@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6F550185-5037-4FEB-8ECA-CB456299DC0E}|..\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj|c:\\users\\swime\\source\\repos\\auctionwebapi.core\\data\\auctiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F76C604-DE66-458A-A4B4-A51AC8883635}|AuctionWebApi.csproj|c:\\users\\swime\\source\\repos\\auctionwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F76C604-DE66-458A-A4B4-A51AC8883635}|AuctionWebApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F76C604-DE66-458A-A4B4-A51AC8883635}|AuctionWebApi.csproj|c:\\users\\swime\\source\\repos\\auctionwebapi\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{3F76C604-DE66-458A-A4B4-A51AC8883635}|AuctionWebApi.csproj|solutionrelative:.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuctionDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\Data\\AuctionDbContext.cs",
+              "RelativeDocumentMoniker": "..\\AuctionWebApi.Core\\Data\\AuctionDbContext.cs",
+              "ToolTip": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\Data\\AuctionDbContext.cs",
+              "RelativeToolTip": "..\\AuctionWebApi.Core\\Data\\AuctionDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:16:42.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:13:53.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".gitattributes",
+              "DocumentMoniker": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\.gitattributes",
+              "RelativeDocumentMoniker": ".gitattributes",
+              "ToolTip": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\.gitattributes",
+              "RelativeToolTip": ".gitattributes",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-24T17:06:54.62Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

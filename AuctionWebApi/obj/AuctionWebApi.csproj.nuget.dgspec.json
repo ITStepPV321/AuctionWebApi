@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj": {}
+    "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\AuctionWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+    "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "projectUniqueName": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
         "projectName": "AuctionWebApi.Core",
-        "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
-        "packagesPath": "C:\\Users\\semen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\obj\\",
+        "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\semen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,21 +81,17 @@
         }
       }
     },
-    "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
+    "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
         "projectName": "AuctionWebApi.Infrastructure",
-        "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\semen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\obj\\",
+        "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\semen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,8 +106,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
-                "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
+              "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+                "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
               }
             }
           }
@@ -160,21 +152,17 @@
         }
       }
     },
-    "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj": {
+    "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\AuctionWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\AuctionWebApi.csproj",
         "projectName": "AuctionWebApi",
-        "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj",
-        "packagesPath": "C:\\Users\\semen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi\\obj\\",
+        "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\AuctionWebApi.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\semen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,11 +177,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
-                "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
+              "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+                "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
               },
-              "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\semen\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj"
+              "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\swime\\source\\repos\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj"
               }
             }
           }
