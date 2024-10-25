@@ -1,4 +1,5 @@
 ﻿using AuctionWebApi.Core.Data;
+using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.Interfaces;
@@ -21,35 +22,53 @@ namespace AuctionWebApi.Infrastructure.Services
         public List<ProductDto> GetAll()
         {
             // LOGIC
-            throw new NotImplementedException();
+            List<Product> products = _context.Products.ToList();
+            return _mapper.Map<List<ProductDto>>(products);
         }
 
         // TODO: Отримати продукти за Id
         public ProductDto GetById(int id)
         {
             // LOGIC
-            throw new NotImplementedException();
+            Product product = _context.Products.FirstOrDefault(p => p.Id == id);
+            return _mapper.Map<ProductDto>(product);
         }
 
         // TODO: Створити новий продукт
         public void Create(CreateProductDto createDto)
         {
             // LOGIC
-            throw new NotImplementedException();
+            if (createDto != null)
+            {
+                Product product = _mapper.Map<Product>(createDto);
+                _context.Products.Add(product);
+                _context.SaveChanges();
+            }
         }
 
         // TODO: Редагувати продукт
         public void Update(ProductDto dto)
         {
             // LOGIC
-            throw new NotImplementedException();
+            ProductDto productOld = GetById(dto.Id);
+            if (productOld != null && dto != null) 
+            {
+                Product product = _mapper.Map<Product>(dto);
+                _context.Products.Update(product);
+                _context.SaveChanges();
+            }
         }
 
         // TODO: Видалити продукт
-        public void Delete(int id)
+        public void Delete(ProductDto productDto)
         {
             // LOGIC
-            throw new NotImplementedException();
+            if(productDto != null)
+            {
+                Product product = _mapper.Map<Product>(productDto);
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
         }
     }
 }

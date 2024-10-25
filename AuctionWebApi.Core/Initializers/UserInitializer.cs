@@ -6,10 +6,12 @@ namespace AuctionWebApi.Core.Initializers
 {
     public class UserInitializer : IDbInitializer<User>
     {
-        // TODO: Додати ініціялізацію (заповнення) користувачів
         public static void Initialize(EntityTypeBuilder<User> builder)
         {
-            // LOGIC
+            builder.HasData(
+                new User { Id = "1", UserName = "john_doe", Email = "john.doe@example.com" },
+                new User { Id = "2", UserName = "jane_doe", Email = "jane.doe@example.com" }
+            );
         }
     }
 }

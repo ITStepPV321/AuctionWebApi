@@ -6,10 +6,13 @@ namespace AuctionWebApi.Core.Initializers
 {
     public class AuctionInitializer : IDbInitializer<Auction>
     {
-        // TODO: Додати ініціялізацію (заповнення) аукціонів
         public static void Initialize(EntityTypeBuilder<Auction> builder)
         {
-            // LOGIC
+            builder.HasData(
+                new Auction { Id = 1, Date = DateTime.Now.AddDays(-10) },
+                new Auction { Id = 2, Date = DateTime.Now.AddDays(-5) },
+                new Auction { Id = 3, Date = DateTime.Now }
+            );
         }
     }
 }

@@ -46,7 +46,7 @@ namespace AuctionWebApi.Infrastructure.Services
         }
 
         // TODO: Видалити аукціон за Id
-        public void Delete(int id)
+        public void Delete(AuctionDto dto)
         {
             // LOGIC
             throw new NotImplementedException();
