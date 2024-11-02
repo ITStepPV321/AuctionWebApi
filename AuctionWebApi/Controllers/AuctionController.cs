@@ -1,4 +1,5 @@
-﻿using AuctionWebApi.Infrastructure.DTOs;
+﻿using AuctionWebApi.Core.Entities;
+using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -22,34 +23,34 @@ namespace AuctionWebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            // LOGIC
+            List<AuctionDto> auctions = _auctionService.GetAll();
 
-            return Ok();
+            return Ok(auctions);
         }
 
         // TODO: Отримання аукціону за Id
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            // LOGIC
+            AuctionDto auctionDto = _auctionService.GetById(id);
 
-            return Ok();
+            return Ok(auctionDto);
         }
 
         // TODO: Створення аукціону
         [HttpPost]
-        public IActionResult Post([FromBody] string value)
+        public IActionResult Post([FromBody] CreateAuctionDto createAuctionDto)
         {
-            // LOGIC
+            _auctionService.Create(createAuctionDto);
 
             return Ok();
         }
 
         // TODO: Редагування аукціону
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] AuctionDto auctionDto)
         {
-            // LOGIC
+            _auctionService.Update(auctionDto);
 
             return Ok();
         }
@@ -58,7 +59,9 @@ namespace AuctionWebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            // LOGIC
+            AuctionDto auctionDto = _auctionService.GetById(id);
+
+            _auctionService.Delete(auctionDto);
 
             return Ok();
         }
