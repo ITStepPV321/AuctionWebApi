@@ -25,6 +25,10 @@ namespace AuctionWebApi
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
+            builder.Services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AuctionDbContext>() // or your specific DbContext
+                .AddDefaultTokenProviders();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -35,6 +39,7 @@ namespace AuctionWebApi
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto>, AuctionService>();
             builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto>, InvoiceService>();
             builder.Services.AddScoped<UserManager<User>>();
+            builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
 
             builder.Services.AddAutoMapper(typeof(MapperProfile));
 

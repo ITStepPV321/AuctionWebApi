@@ -1,5 +1,6 @@
 ﻿using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Login;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,25 +39,25 @@ namespace AuctionWebApi.Controllers
 
         // REVIEW: Реєстрація нового учасника аукціону
         [HttpPost("register")]
-        public IActionResult RegisterPost([FromBody] CreateUserDto userDto)
+        public async Task<IActionResult> RegisterPost([FromBody] CreateUserDto userDto)
         {
-            _userService.Register(userDto);
+            await _userService.Register(userDto);
 
             return Ok();
         }
 
         // REVIEW: Вхід учасника аукціону в систему (Створення сесії)
         [HttpPost("login")]
-        public IActionResult LoginPost([FromBody] UserDto userDto)
+        public async Task<IActionResult> LoginPost([FromBody] LoginUserDto userDto)
         {
-            _userService.Login(userDto);
+            string token = await _userService.Login(userDto);
 
-            return Ok();
+            return Ok(token);
         }
 
         // REVIEW: Вихід учасника аукціону із системи (Видалення сесії)
         [HttpPost("logout")]
-        public IActionResult LogoutPost()
+        public async Task<IActionResult> LogoutPost()
         {
             _userService.Logout();
 
@@ -65,18 +66,18 @@ namespace AuctionWebApi.Controllers
 
         // REVIEW: Редагування учасника аукціону
         [HttpPut("{id}")]
-        public IActionResult Put([FromBody] UserDto user)
+        public async Task<IActionResult> Put([FromBody] UserDto user)
         {
-            _userService.Update(user);
+            await _userService.Update(user);
 
             return Ok();
         }
 
         // REVIEW: Видалення учасника аукціону
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            _userService.Delete(id);
+            await _userService.Delete(id);
 
             return Ok();
         }

@@ -2,6 +2,7 @@
 using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Login;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -15,13 +16,15 @@ namespace AuctionWebApi.Infrastructure.Services
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IJWTTokenGenerator _jwtTokenGenerator;
 
-        public UserService(AuctionDbContext context, IMapper mapper, UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserService(AuctionDbContext context, IMapper mapper, UserManager<User> userManager, SignInManager<User> signInManager, IJWTTokenGenerator jwtTokenGenerator)
         {
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
             _signInManager = signInManager;
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
         // REVIEW: Отримати усіх користувачів
@@ -48,14 +51,26 @@ namespace AuctionWebApi.Infrastructure.Services
             await _userManager.CreateAsync(user, userDto.Password);
         }
 
-        // TODO: Вхід користувача
-        public async Task Login(UserDto userDto)
+        // REVIEW: Вхід користувача
+        public async Task<string> Login(LoginUserDto loginUserDto)
         {
-            User user = _mapper.Map<User>(userDto);
+            User user = await _userManager.FindByEmailAsync(loginUserDto.Email)!;
+
+            if (user == null)
+            {
+                throw new Exception("User now found");
+            }
+
+            bool isPasswordValid = await _userManager.CheckPasswordAsync(user, loginUserDto.Password);
+
+            if (!isPasswordValid)
+            {
+                throw new Exception("Wrong Password");
+            }
 
             await _signInManager.SignInAsync(user, true);
 
-            // TODO: JWT токен
+            return _jwtTokenGenerator.Generate(user);
         }
 
         // REVIEW: Вихід користувача
