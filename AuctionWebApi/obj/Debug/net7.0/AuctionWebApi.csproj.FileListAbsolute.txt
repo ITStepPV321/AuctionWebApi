@@ -64,7 +64,6 @@ C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\Auction
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.AssemblyInfoInputs.cache
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.AssemblyInfo.cs
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.csproj.CoreCompileInputs.cache
-C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.sourcelink.json
 C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\obj\Debug\net7.0\staticwebassets.build.json
@@ -268,3 +267,6 @@ D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi\obj\Debug\net7.0\refint
 D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.pdb
 D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi\obj\Debug\net7.0\AuctionWebApi.genruntimeconfig.cache
 D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi\obj\Debug\net7.0\ref\AuctionWebApi.dll
+C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\bin\Debug\net7.0\AuctionWebApi.staticwebassets.runtime.json
+C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\semen\Source\Repos\AuctionWebApi\AuctionWebApi\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll

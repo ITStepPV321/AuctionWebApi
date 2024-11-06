@@ -2,6 +2,7 @@
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 
 namespace AuctionWebApi.Controllers
 {
@@ -9,9 +10,9 @@ namespace AuctionWebApi.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        private readonly IEntityService<CreateInvoiceDto, InvoiceDto> _invoiceService;
+        private readonly IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto> _invoiceService;
 
-        public InvoiceController(IEntityService<CreateInvoiceDto, InvoiceDto> invoiceService)
+        public InvoiceController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto> invoiceService)
         {
             _invoiceService = invoiceService;
         }

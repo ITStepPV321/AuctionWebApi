@@ -1,6 +1,7 @@
 ﻿using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AutoMapper;
 
 namespace AuctionWebApi.Infrastructure.Helpers
@@ -11,6 +12,7 @@ namespace AuctionWebApi.Infrastructure.Helpers
         {
             // TODO: Додати мапінґи для продукту
             CreateMap<ProductDto,Product>().ReverseMap();
+            CreateMap<UpdateProductDto, Product>();
             CreateMap<CreateProductDto, Product>();
 
             // TODO: Додати мапінґи для користувача

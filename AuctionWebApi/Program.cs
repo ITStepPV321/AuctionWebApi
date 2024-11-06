@@ -2,6 +2,7 @@ using AuctionWebApi.Core.Data;
 using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Helpers;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AuctionWebApi.Infrastructure.Services;
@@ -35,9 +36,9 @@ namespace AuctionWebApi
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto>, ProductService>();
-            builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto>, AuctionService>();
-            builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto>, InvoiceService>();
+            builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto,UpdateProductDto>, ProductService>();
+            builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto>, AuctionService>();
+            builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto>, InvoiceService>();
             builder.Services.AddScoped<UserManager<User>>();
             builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
 

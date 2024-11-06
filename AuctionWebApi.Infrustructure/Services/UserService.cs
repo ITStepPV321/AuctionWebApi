@@ -101,5 +101,25 @@ namespace AuctionWebApi.Infrastructure.Services
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
         }
+
+        //List<UserDto> IUserService.GetById(string id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void Create(CreateUserDto userDto)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //void IUserService.Update(UserDto userDto)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void Delete(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

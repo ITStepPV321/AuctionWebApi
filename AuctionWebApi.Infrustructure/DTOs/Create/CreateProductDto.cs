@@ -8,7 +8,8 @@ namespace AuctionWebApi.Infrastructure.DTOs.Create
         public string Name {  get; set; }
         public string Description { get; set; }
         public int Year {  get; set; }
-        public Auction Auction { get; set; }
+        public int AuctionId {  get; set; }
+       // public Auction Auction { get; set; }
 
     }
 }

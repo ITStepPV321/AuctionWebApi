@@ -3,6 +3,7 @@ using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 
 namespace AuctionWebApi.Controllers
 {
@@ -10,9 +11,10 @@ namespace AuctionWebApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IEntityService<CreateProductDto, ProductDto> _productService;
+        private readonly IEntityService<CreateProductDto, ProductDto,UpdateProductDto> _productService;
         private readonly IMapper _mapper;
-        public ProductController(IEntityService<CreateProductDto, ProductDto> productService, IMapper mapper)
+        
+        public ProductController(IEntityService<CreateProductDto, ProductDto,UpdateProductDto> productService, IMapper mapper)
         {
             _productService = productService;
             _mapper = mapper;
@@ -26,7 +28,7 @@ namespace AuctionWebApi.Controllers
         {
             // LOGIC
             List<ProductDto> products = _productService.GetAll();
-            return Ok();
+            return Ok(products);
         }
 
         // TODO: Отримання товару за Id
@@ -42,14 +44,14 @@ namespace AuctionWebApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] CreateProductDto newProduct)
         {
-            // LOGIC
-            ProductDto productDto = _mapper.Map<ProductDto>(newProduct);
+           
+            _productService.Create(newProduct);
             return Ok();
         }
 
         // TODO: Редагування товару
         [HttpPut("{id}")]
-        public IActionResult Put( [FromBody] ProductDto updatedProduct)
+        public IActionResult Put(int id, [FromBody] UpdateProductDto updatedProduct)
         {
             // LOGIC
             _productService.Update(updatedProduct);

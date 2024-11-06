@@ -32,16 +32,17 @@ namespace AuctionWebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            UserDto user = _userService.GetById(id);
+            //   UserDto user = _userService.GetById(id);
 
-            return Ok(user);
+            //return Ok(user);
+            return Ok();
         }
 
         // REVIEW: Реєстрація нового учасника аукціону
         [HttpPost("register")]
         public async Task<IActionResult> RegisterPost([FromBody] CreateUserDto userDto)
         {
-            await _userService.Register(userDto);
+         //   await _userService.Register(userDto);
 
             return Ok();
         }
@@ -50,16 +51,17 @@ namespace AuctionWebApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> LoginPost([FromBody] LoginUserDto userDto)
         {
-            string token = await _userService.Login(userDto);
+            // string token = await _userService.Login(userDto);
 
-            return Ok(token);
+            //  return Ok(token);
+            return Ok();
         }
 
         // REVIEW: Вихід учасника аукціону із системи (Видалення сесії)
         [HttpPost("logout")]
         public async Task<IActionResult> LogoutPost()
         {
-            _userService.Logout();
+           // _userService.Logout();
 
             return Ok();
         }
@@ -68,7 +70,7 @@ namespace AuctionWebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put([FromBody] UserDto user)
         {
-            await _userService.Update(user);
+          //  await _userService.Update(user);
 
             return Ok();
         }
@@ -77,7 +79,7 @@ namespace AuctionWebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            await _userService.Delete(id);
+          //  await _userService.Delete(id);
 
             return Ok();
         }

@@ -1,12 +1,13 @@
 ﻿using AuctionWebApi.Core.Data;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
-    public class InvoiceService : IEntityService<CreateInvoiceDto, InvoiceDto>
+    public class InvoiceService : IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto>
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
@@ -49,6 +50,11 @@ namespace AuctionWebApi.Infrastructure.Services
         public void Delete(InvoiceDto dto)
         {
             // LOGIC
+            throw new NotImplementedException();
+        }
+
+        public void Update(UpdateProductDto dto)
+        {
             throw new NotImplementedException();
         }
     }

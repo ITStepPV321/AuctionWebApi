@@ -1,11 +1,15 @@
-﻿namespace AuctionWebApi.Infrastructure.Interfaces
+﻿using AuctionWebApi.Infrastructure.DTOs;
+
+namespace AuctionWebApi.Infrastructure.Interfaces
 {
-    public interface IEntityService<CreateDto, Dto>
+    public interface IEntityService<CreateDto, Dto, UpdateDto>
     {
         List<Dto> GetAll();
         Dto GetById(int id);
         void Create(CreateDto createDto);
-        void Update(Dto dto);
+        void Update(UpdateDto dto);
         void Delete(Dto dto);
+        
+        //void Create(ProductDto productDto);
     }
 }
