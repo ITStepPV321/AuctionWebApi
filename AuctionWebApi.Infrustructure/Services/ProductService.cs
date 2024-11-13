@@ -2,12 +2,13 @@
 using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
-    public class ProductService : IEntityService<CreateProductDto, ProductDto>
+    public class ProductService : IEntityService<CreateProductDto, ProductDto, UpdateProductDto>
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
@@ -47,13 +48,13 @@ namespace AuctionWebApi.Infrastructure.Services
         }
 
         // TODO: Редагувати продукт
-        public void Update(ProductDto dto)
+        public void Update(UpdateProductDto updateDto)
         {
             // LOGIC
-            ProductDto productOld = GetById(dto.Id);
-            if (productOld != null && dto != null) 
+            ProductDto productOld = GetById(updateDto.Id);
+            if (productOld != null && updateDto != null) 
             {
-                Product product = _mapper.Map<Product>(dto);
+                Product product = _mapper.Map<Product>(updateDto);
                 _context.Products.Update(product);
                 _context.SaveChanges();
             }

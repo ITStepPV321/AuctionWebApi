@@ -2,12 +2,13 @@
 using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
-    public class AuctionService : IEntityService<CreateAuctionDto, AuctionDto>
+    public class AuctionService : IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto>
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
@@ -60,6 +61,11 @@ namespace AuctionWebApi.Infrastructure.Services
             _context.Auctions.Remove(auction);
 
             _context.SaveChanges();
+        }
+
+        public void Update(UpdateProductDto dto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

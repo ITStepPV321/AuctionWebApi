@@ -1,6 +1,7 @@
 ﻿using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,9 @@ namespace AuctionWebApi.Controllers
     [ApiController]
     public class AuctionController : ControllerBase
     {
-        private readonly IEntityService<CreateAuctionDto, AuctionDto> _auctionService;
+        private readonly IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto> _auctionService;
 
-        public AuctionController(IEntityService<CreateAuctionDto, AuctionDto> auctionService)
+        public AuctionController(IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto> auctionService)
         {
             _auctionService = auctionService;
         }
@@ -50,7 +51,7 @@ namespace AuctionWebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] AuctionDto auctionDto)
         {
-            _auctionService.Update(auctionDto);
+         //   _auctionService.Update(auctionDto);
 
             return Ok();
         }
