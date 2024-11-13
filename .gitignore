@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/AuctionWebApi.Infrustructure/obj/Debug/net7.0/AuctionWebApi.Infrastructure.AssemblyInfo.cs
+/AuctionWebApi.Infrustructure/obj/Debug/net7.0/AuctionWebApi.Infrastructure.AssemblyInfoInputs.cache
