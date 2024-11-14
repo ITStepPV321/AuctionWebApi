@@ -1,6 +1,7 @@
 ﻿using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +18,6 @@ namespace AuctionWebApi.Controllers
             _userService = userService;
         }
 
-        // ACHTUNG: Наступні дії робити лише завдяки сервісу!!!
-
-        // REVIEW: Отримання усіх учасників аукціону
         [HttpGet]
         public IActionResult Get()
         {
@@ -28,21 +26,18 @@ namespace AuctionWebApi.Controllers
             return Ok(users);
         }
 
-        // REVIEW: Отримання учасника аукціону за Id
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            //   UserDto user = _userService.GetById(id);
+            UserDto user = _userService.GetById(id);
 
-            //return Ok(user);
-            return Ok();
+            return Ok(user);
         }
 
-        // REVIEW: Реєстрація нового учасника аукціону
         [HttpPost("register")]
         public async Task<IActionResult> RegisterPost([FromBody] CreateUserDto userDto)
         {
-         //   await _userService.Register(userDto);
+            await _userService.Register(userDto);
 
             return Ok();
         }
@@ -51,35 +46,33 @@ namespace AuctionWebApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> LoginPost([FromBody] LoginUserDto userDto)
         {
-            // string token = await _userService.Login(userDto);
+            string token = await _userService.Login(userDto);
 
-            //  return Ok(token);
-            return Ok();
+            return Ok(token);
         }
 
         // REVIEW: Вихід учасника аукціону із системи (Видалення сесії)
         [HttpPost("logout")]
         public async Task<IActionResult> LogoutPost()
         {
-           // _userService.Logout();
+            await _userService.Logout();
 
             return Ok();
         }
 
-        // REVIEW: Редагування учасника аукціону
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromBody] UserDto user)
+        public async Task<IActionResult> Put(string id, [FromBody] UpdateUserDto userDto)
         {
-          //  await _userService.Update(user);
+            userDto.Id = id;
+            await _userService.Update(userDto);
 
             return Ok();
         }
 
-        // REVIEW: Видалення учасника аукціону
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-          //  await _userService.Delete(id);
+            await _userService.Delete(id);
 
             return Ok();
         }

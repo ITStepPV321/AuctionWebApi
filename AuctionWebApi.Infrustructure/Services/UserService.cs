@@ -3,6 +3,7 @@ using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -27,7 +28,6 @@ namespace AuctionWebApi.Infrastructure.Services
             _jwtTokenGenerator = jwtTokenGenerator;
         }
 
-        // REVIEW: Отримати усіх користувачів
         public List<UserDto> GetAll()
         {
             DbSet<User> users = _context.Users;
@@ -35,7 +35,6 @@ namespace AuctionWebApi.Infrastructure.Services
             return _mapper.Map<List<UserDto>>(users);
         }
 
-        // REVIEW: Отримати користувача за Id
         public UserDto GetById(string id)
         {
             User user = _context.Users.FirstOrDefault(user => user.Id == id)!;
@@ -43,7 +42,6 @@ namespace AuctionWebApi.Infrastructure.Services
             return _mapper.Map<UserDto>(user);
         }
 
-        // REVIEW: Створити нового користувача
         public async Task Register(CreateUserDto userDto)
         {
             User user = _mapper.Map<User>(userDto);
@@ -54,13 +52,8 @@ namespace AuctionWebApi.Infrastructure.Services
         // REVIEW: Вхід користувача
         public async Task<string> Login(LoginUserDto loginUserDto)
         {
-            User user = await _userManager.FindByEmailAsync(loginUserDto.Email)!;
-
-            if (user == null)
-            {
-                throw new Exception("User now found");
-            }
-
+            User user = await _userManager.FindByEmailAsync(loginUserDto.Email)
+                ?? throw new Exception("User now found");
             bool isPasswordValid = await _userManager.CheckPasswordAsync(user, loginUserDto.Password);
 
             if (!isPasswordValid)
@@ -80,20 +73,43 @@ namespace AuctionWebApi.Infrastructure.Services
         }
 
         // REVIEW: Редагувати користувача
-        public async Task Update(UserDto userDto)
+        public async Task Update(UpdateUserDto userDto)
         {
-            User user = _mapper.Map<User>(userDto);
+            User user = _context.Users.Find(userDto.Id) ?? throw new Exception("User cannot be null");
 
-            if (user == null)
+            if (userDto.Email != "string")
             {
-                throw new Exception("User cannot be null");
+                user.Email = userDto.Email;
+            }
+
+            if (userDto.UserName != "string")
+            {
+                user.UserName = userDto.UserName;
+            }
+
+            if (userDto.CurrentPassword != "string" && userDto.NewPassword != "string")
+            {
+                await ChangePassword(user, userDto.CurrentPassword, userDto.NewPassword);
             }
 
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
 
-        // TODO: Видалити користувача за Id
+        private async Task ChangePassword(User user, string currentPassword, string newPassword)
+        {
+            bool isPasswordValid = await _userManager.CheckPasswordAsync(user, currentPassword);
+
+            if (isPasswordValid)
+            {
+                await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+            }
+            else
+            {
+                throw new Exception("Invalid Password");
+            }
+        }
+
         public async Task Delete(string id)
         {
             User user = _context.Users.Find(id)!;
@@ -101,25 +117,5 @@ namespace AuctionWebApi.Infrastructure.Services
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
         }
-
-        //List<UserDto> IUserService.GetById(string id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void Create(CreateUserDto userDto)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //void IUserService.Update(UserDto userDto)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void Delete(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

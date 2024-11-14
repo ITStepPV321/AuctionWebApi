@@ -10,14 +10,17 @@ namespace AuctionWebApi.Infrastructure.Helpers
     {
         public MapperProfile()
         {
-            // TODO: Додати мапінґи для продукту
             CreateMap<ProductDto,Product>().ReverseMap();
             CreateMap<UpdateProductDto, Product>();
             CreateMap<CreateProductDto, Product>();
 
-            // TODO: Додати мапінґи для користувача
             CreateMap<UserDto, User>().ReverseMap();
             CreateMap<CreateUserDto, User>()
+                .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.UserName))
+                .ForMember(entity => entity.Email, opt => opt.MapFrom(dto => dto.Email))
+                .ForMember(entity => entity.Auctions, opt => opt.Ignore())
+                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
+            CreateMap<UpdateUserDto, User>()
                 .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.UserName))
                 .ForMember(entity => entity.Email, opt => opt.MapFrom(dto => dto.Email))
                 .ForMember(entity => entity.Auctions, opt => opt.Ignore())

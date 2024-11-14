@@ -1,6 +1,7 @@
 ﻿using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
+using AuctionWebApi.Infrastructure.DTOs.Update;
 
 namespace AuctionWebApi.Infrastructure.Interfaces
 {
@@ -11,7 +12,7 @@ namespace AuctionWebApi.Infrastructure.Interfaces
         Task Register(CreateUserDto userDto);
         Task<string> Login(LoginUserDto userDto);
         Task Logout();
-        Task Update(UserDto userDto);
+        Task Update(UpdateUserDto userDto);
         Task Delete(string id);
     }
 }
