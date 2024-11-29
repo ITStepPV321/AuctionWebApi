@@ -10,9 +10,9 @@ namespace AuctionWebApi.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        private readonly IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto> _invoiceService;
+        private readonly IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> _invoiceService;
 
-        public InvoiceController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto> invoiceService)
+        public InvoiceController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> invoiceService)
         {
             _invoiceService = invoiceService;
         }
@@ -23,34 +23,34 @@ namespace AuctionWebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            // LOGIC
+            List<InvoiceDto> invoices = _invoiceService.GetAll();
 
-            return Ok();
+            return Ok(invoices);
         }
 
         // TODO: Отримання чеку за Id
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            // LOGIC
+            InvoiceDto invoice = _invoiceService.GetById(id);
 
-            return Ok();
+            return Ok(invoice);
         }
 
         // TODO: Створення чеку
         [HttpPost]
-        public IActionResult Post([FromBody] string value)
+        public IActionResult Post([FromBody] CreateInvoiceDto invoiceDto)
         {
-            // LOGIC
+            _invoiceService.Create(invoiceDto);
 
             return Ok();
         }
 
         // TODO: Редагування чеку
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] UpdateInvoiceDto updateInvoice)
         {
-            // LOGIC
+            _invoiceService.Update(updateInvoice);
 
             return Ok();
         }
@@ -59,7 +59,8 @@ namespace AuctionWebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            // LOGIC
+            InvoiceDto invoiceDto = _invoiceService.GetById(id);
+            _invoiceService.Delete(invoiceDto);
 
             return Ok();
         }

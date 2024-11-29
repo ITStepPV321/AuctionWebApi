@@ -33,6 +33,7 @@ namespace AuctionWebApi.Infrastructure.Helpers
             // TODO: Додати мапінґи для чеку
             CreateMap<InvoiceDto, Invoice>().ReverseMap();
             CreateMap<CreateInvoiceDto, Invoice>();
+            CreateMap<UpdateInvoiceDto, Invoice>();
 
 
         }

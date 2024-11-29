@@ -71,9 +71,9 @@ namespace AuctionWebApi
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto,UpdateProductDto>, ProductService>();
+            builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto, UpdateProductDto>, ProductService>();
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto>, AuctionService>();
-            builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateProductDto>, InvoiceService>();
+            builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>, InvoiceService>();
             builder.Services.AddScoped<UserManager<User>>();
             builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
 
@@ -91,7 +91,7 @@ namespace AuctionWebApi
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
                 };
             });
 

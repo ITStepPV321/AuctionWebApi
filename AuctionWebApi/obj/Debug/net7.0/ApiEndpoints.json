@@ -97,8 +97,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "value",
-        "Type": "System.String",
+        "Name": "invoiceDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Create.CreateInvoiceDto",
         "IsRequired": true
       }
     ],
@@ -134,8 +134,8 @@
         "IsRequired": true
       },
       {
-        "Name": "value",
-        "Type": "System.String",
+        "Name": "updateInvoice",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.UpdateInvoiceDto",
         "IsRequired": true
       }
     ],

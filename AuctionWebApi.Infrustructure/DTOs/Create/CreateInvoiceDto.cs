@@ -6,7 +6,7 @@ namespace AuctionWebApi.Infrastructure.DTOs.Create
     {
         // TODO: Додати атрибути
         public DateTime Date { get; set; }
-        public User User { get; set; }
-        public Product Product { get; set; }
+        public int UserId { get; set; }
+        public int ProductId { get; set; }
     }
 }
