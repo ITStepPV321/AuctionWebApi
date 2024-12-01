@@ -19,13 +19,23 @@ namespace AuctionWebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             List<UserDto> users = _userService.GetAll();
 
             return Ok(users);
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            string userId = User.FindFirst("sub")?.Value!;
+            
+            UserDto user = _userService.GetById(userId);
+
+            return Ok(user);
+        }
+        
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {

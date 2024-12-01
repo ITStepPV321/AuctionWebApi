@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj": {}
+    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "projectUniqueName": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
         "projectName": "AuctionWebApi.Core",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\obj\\",
+        "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,9 +39,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net7.0": {
@@ -77,44 +72,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
+    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
         "projectName": "AuctionWebApi.Infrastructure",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\obj\\",
+        "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,8 +106,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
+              "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+                "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
               }
             }
           }
@@ -143,9 +120,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net7.0": {
@@ -175,44 +151,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj": {
+    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj",
+        "projectUniqueName": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj",
         "projectName": "AuctionWebApi",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi\\AuctionWebApi.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi\\obj\\",
+        "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj",
+        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -227,11 +185,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
+              "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+                "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
               },
-              "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\ITStepPV321\\AuctionWebApi\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj"
+              "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
+                "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj"
               }
             }
           }
@@ -244,9 +202,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net7.0": {
@@ -298,24 +255,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -324,7 +263,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
