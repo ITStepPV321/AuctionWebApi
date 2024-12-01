@@ -28,7 +28,12 @@ namespace AuctionWebApi.Infrastructure.Helpers
 
             // TODO: Додати мапінґи для аукціону
             CreateMap<AuctionDto, Auction>().ReverseMap();
-            CreateMap<CreateAuctionDto, Auction>();
+            CreateMap<CreateAuctionDto, Auction>()
+                .ForMember(entity=>entity.Products, opt=>opt.Ignore())
+                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
+            CreateMap<UpdateAuctionDto, Auction>()
+                .ForMember(entity => entity.Products, opt => opt.Ignore())
+                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
 
             // TODO: Додати мапінґи для чеку
             CreateMap<InvoiceDto, Invoice>().ReverseMap();

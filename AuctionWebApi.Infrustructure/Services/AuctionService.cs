@@ -8,7 +8,7 @@ using AutoMapper;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
-    public class AuctionService : IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto>
+    public class AuctionService : IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto>
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
@@ -43,16 +43,6 @@ namespace AuctionWebApi.Infrastructure.Services
             _context.SaveChanges();
         }
 
-        // TODO: Редагувати аукціон
-        public void Update(AuctionDto dto)
-        {
-            Auction auction = _mapper.Map<Auction>(dto);
-
-            _context.Auctions.Update(auction);
-
-            _context.SaveChanges();
-        }
-
         // TODO: Видалити аукціон за Id
         public void Delete(AuctionDto dto)
         {
@@ -63,9 +53,13 @@ namespace AuctionWebApi.Infrastructure.Services
             _context.SaveChanges();
         }
 
-        public void Update(UpdateProductDto dto)
+        public void Update(UpdateAuctionDto dto)
         {
-            throw new NotImplementedException();
+            Auction auction = _mapper.Map<Auction>(dto);
+
+            _context.Auctions.Update(auction);
+
+            _context.SaveChanges();
         }
     }
 }

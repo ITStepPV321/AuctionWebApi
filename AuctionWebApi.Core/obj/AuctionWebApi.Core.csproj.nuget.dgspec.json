@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {}
+    "C:\\Users\\ghtra\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+    "C:\\Users\\ghtra\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "projectUniqueName": "C:\\Users\\ghtra\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
         "projectName": "AuctionWebApi.Core",
-        "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
-        "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\obj\\",
+        "projectPath": "C:\\Users\\ghtra\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj",
+        "packagesPath": "C:\\Users\\ghtra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ghtra\\Source\\Repos\\AuctionWebApi\\AuctionWebApi.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ghtra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
