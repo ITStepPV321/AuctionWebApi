@@ -8,11 +8,11 @@ namespace AuctionWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InvoiceController : ControllerBase
+    public class InvoicesController : ControllerBase
     {
         private readonly IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> _invoiceService;
 
-        public InvoiceController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> invoiceService)
+        public InvoicesController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> invoiceService)
         {
             _invoiceService = invoiceService;
         }

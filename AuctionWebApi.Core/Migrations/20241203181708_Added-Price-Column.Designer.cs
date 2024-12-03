@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionWebApi.Core.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20241024190903_InitDb")]
-    partial class InitDb
+    [Migration("20241203181708_Added-Price-Column")]
+    partial class AddedPriceColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,14 +33,48 @@ namespace AuctionWebApi.Core.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Auctions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2024, 11, 23, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7573),
+                            Price = 0,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2024, 11, 28, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7650),
+                            Price = 0,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7653),
+                            Price = 0,
+                            ProductId = 3
+                        });
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Invoice", b =>
@@ -50,9 +84,6 @@ namespace AuctionWebApi.Core.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AuctionId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -66,13 +97,27 @@ namespace AuctionWebApi.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuctionId");
-
                     b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Invoices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2024, 12, 2, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7667),
+                            ProductId = 1,
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7671),
+                            ProductId = 2,
+                            UserId = "2"
+                        });
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Product", b =>
@@ -82,9 +127,6 @@ namespace AuctionWebApi.Core.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AuctionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -99,9 +141,30 @@ namespace AuctionWebApi.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuctionId");
-
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Description of Product 1",
+                            Name = "Product 1",
+                            Year = 2023
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Description of Product 2",
+                            Name = "Product 2",
+                            Year = 2024
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Description of Product 3",
+                            Name = "Product 3",
+                            Year = 2024
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -315,21 +378,53 @@ namespace AuctionWebApi.Core.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.HasDiscriminator().HasValue("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "39ebc94b-f830-48c7-ba19-8ca7737f2028",
+                            Email = "john.doe@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "74ef0a82-a0d1-4ea3-b09a-26563b5a1884",
+                            TwoFactorEnabled = false,
+                            UserName = "john_doe"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "835cea07-f17d-4430-ab06-1c3863bc82a9",
+                            Email = "jane.doe@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "765b3676-3ae3-4b4d-9c42-bd84cb057f2c",
+                            TwoFactorEnabled = false,
+                            UserName = "jane_doe"
+                        });
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Auction", b =>
                 {
+                    b.HasOne("AuctionWebApi.Core.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("AuctionWebApi.Core.Entities.User", null)
                         .WithMany("Auctions")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Invoice", b =>
                 {
-                    b.HasOne("AuctionWebApi.Core.Entities.Auction", null)
-                        .WithMany("Invoices")
-                        .HasForeignKey("AuctionId");
-
                     b.HasOne("AuctionWebApi.Core.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
@@ -345,17 +440,6 @@ namespace AuctionWebApi.Core.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AuctionWebApi.Core.Entities.Product", b =>
-                {
-                    b.HasOne("AuctionWebApi.Core.Entities.Auction", "Auction")
-                        .WithMany("Products")
-                        .HasForeignKey("AuctionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Auction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -407,13 +491,6 @@ namespace AuctionWebApi.Core.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("AuctionWebApi.Core.Entities.Auction", b =>
-                {
-                    b.Navigation("Invoices");
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.User", b =>

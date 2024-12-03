@@ -1,19 +1,20 @@
-﻿using AuctionWebApi.Core.Entities;
-using AuctionWebApi.Infrastructure.DTOs;
+﻿using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuctionController : ControllerBase
+    public class AuctionsController : ControllerBase
     {
-        private readonly IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto> _auctionService;
+        private readonly IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto> _auctionService;
 
-        public AuctionController(IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto> auctionService)
+        public AuctionsController(IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto> auctionService)
         {
             _auctionService = auctionService;
         }
@@ -22,6 +23,7 @@ namespace AuctionWebApi.Controllers
 
         // TODO: Отримання всіх аукціонів
         [HttpGet]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Get()
         {
             List<AuctionDto> auctions = _auctionService.GetAll();
@@ -39,7 +41,7 @@ namespace AuctionWebApi.Controllers
         }
 
         // TODO: Створення аукціону
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult Post([FromBody] CreateAuctionDto createAuctionDto)
         {
             _auctionService.Create(createAuctionDto);
@@ -49,9 +51,9 @@ namespace AuctionWebApi.Controllers
 
         // TODO: Редагування аукціону
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] AuctionDto auctionDto)
+        public IActionResult Put(int id, [FromBody] UpdateAuctionDto auctionDto)
         {
-         //   _auctionService.Update(auctionDto);
+            _auctionService.Update(auctionDto);
 
             return Ok();
         }

@@ -3,7 +3,7 @@ using AuctionWebApi.Core.Entities;
 using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
-using AuctionWebApi.Infrastructure.DTOs.Update;
+using AuctionWebApi.Infrastructure.DTOs.Update.User;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -72,8 +72,20 @@ namespace AuctionWebApi.Infrastructure.Services
             await _signInManager.SignOutAsync();
         }
 
-        // REVIEW: Редагувати користувача
-        public async Task Update(UpdateUserDto userDto)
+        public async Task UpdateUserName(UpdateUserNameDto userDto)
+        {
+            User user = _context.Users.Find(userDto.Id) ?? throw new Exception("User cannot be null");
+
+            if (userDto.UserName != "string")
+            {
+                user.UserName = userDto.UserName;
+            }
+
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateEmail(UpdateEmailDto userDto)
         {
             User user = _context.Users.Find(userDto.Id) ?? throw new Exception("User cannot be null");
 
@@ -82,18 +94,28 @@ namespace AuctionWebApi.Infrastructure.Services
                 user.Email = userDto.Email;
             }
 
-            if (userDto.UserName != "string")
-            {
-                user.UserName = userDto.UserName;
-            }
-
-            if (userDto.CurrentPassword != "string" && userDto.NewPassword != "string")
-            {
-                await ChangePassword(user, userDto.CurrentPassword, userDto.NewPassword);
-            }
-
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdatePassword(UpdatePasswordDto userDto)
+        {
+            User user = _context.Users.Find(userDto.Id) ?? throw new Exception("User cannot be null");
+
+            if (userDto.OldPassword != "string" && userDto.NewPassword != "string")
+            {
+                if (userDto.NewPassword == userDto.RepeatPassword)
+                {
+                    throw new Exception("The passwords are not the same.");
+                }
+
+                if (userDto.OldPassword== userDto.NewPassword)
+                {
+                    throw new Exception("The password cannot be the same.");
+                }
+
+                await ChangePassword(user, userDto.OldPassword, userDto.NewPassword);
+            }
         }
 
         private async Task ChangePassword(User user, string currentPassword, string newPassword)

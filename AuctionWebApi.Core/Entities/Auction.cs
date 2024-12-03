@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AuctionWebApi.Core.Entities
+﻿namespace AuctionWebApi.Core.Entities
 {
     public class Auction
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public ICollection<Product> Products { get; set; }
-        public ICollection<Invoice> Invoices { get; set; }
+        public int ProductId { get; set; }
+        public int Price { get; set; }
 
-        public Auction()
-        {
-            Products = new List<Product>();
-            Invoices = new List<Invoice>();
-        }
+        public Product Product { get; set; }
     }
 }

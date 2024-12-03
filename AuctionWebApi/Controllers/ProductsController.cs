@@ -9,12 +9,12 @@ namespace AuctionWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly IEntityService<CreateProductDto, ProductDto,UpdateProductDto> _productService;
         private readonly IMapper _mapper;
         
-        public ProductController(IEntityService<CreateProductDto, ProductDto,UpdateProductDto> productService, IMapper mapper)
+        public ProductsController(IEntityService<CreateProductDto, ProductDto,UpdateProductDto> productService, IMapper mapper)
         {
             _productService = productService;
             _mapper = mapper;

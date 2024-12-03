@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "AuctionWebApi.Controllers.AuctionController",
+    "ContainingType": "AuctionWebApi.Controllers.AuctionsController",
     "Method": "Get",
-    "RelativePath": "api/Auction",
+    "RelativePath": "api/Auctions",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,25 +10,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.AuctionController",
-    "Method": "Post",
-    "RelativePath": "api/Auction",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createAuctionDto",
-        "Type": "AuctionWebApi.Infrastructure.DTOs.Create.CreateAuctionDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuctionWebApi.Controllers.AuctionController",
+    "ContainingType": "AuctionWebApi.Controllers.AuctionsController",
     "Method": "Get",
-    "RelativePath": "api/Auction/{id}",
+    "RelativePath": "api/Auctions/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -42,9 +26,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.AuctionController",
+    "ContainingType": "AuctionWebApi.Controllers.AuctionsController",
     "Method": "Put",
-    "RelativePath": "api/Auction/{id}",
+    "RelativePath": "api/Auctions/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -56,16 +40,16 @@
       },
       {
         "Name": "auctionDto",
-        "Type": "AuctionWebApi.Infrastructure.DTOs.AuctionDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.UpdateAuctionDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.AuctionController",
+    "ContainingType": "AuctionWebApi.Controllers.AuctionsController",
     "Method": "Delete",
-    "RelativePath": "api/Auction/{id}",
+    "RelativePath": "api/Auctions/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -79,9 +63,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.InvoiceController",
+    "ContainingType": "AuctionWebApi.Controllers.AuctionsController",
+    "Method": "Post",
+    "RelativePath": "api/Auctions/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createAuctionDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Create.CreateAuctionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.InvoicesController",
     "Method": "Get",
-    "RelativePath": "api/Invoice",
+    "RelativePath": "api/Invoices",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -89,9 +89,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.InvoiceController",
+    "ContainingType": "AuctionWebApi.Controllers.InvoicesController",
     "Method": "Post",
-    "RelativePath": "api/Invoice",
+    "RelativePath": "api/Invoices",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -105,9 +105,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.InvoiceController",
+    "ContainingType": "AuctionWebApi.Controllers.InvoicesController",
     "Method": "Get",
-    "RelativePath": "api/Invoice/{id}",
+    "RelativePath": "api/Invoices/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -121,9 +121,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.InvoiceController",
+    "ContainingType": "AuctionWebApi.Controllers.InvoicesController",
     "Method": "Put",
-    "RelativePath": "api/Invoice/{id}",
+    "RelativePath": "api/Invoices/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -142,9 +142,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.InvoiceController",
+    "ContainingType": "AuctionWebApi.Controllers.InvoicesController",
     "Method": "Delete",
-    "RelativePath": "api/Invoice/{id}",
+    "RelativePath": "api/Invoices/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -158,9 +158,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.ProductController",
+    "ContainingType": "AuctionWebApi.Controllers.ProductsController",
     "Method": "Get",
-    "RelativePath": "api/Product",
+    "RelativePath": "api/Products",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -168,9 +168,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.ProductController",
+    "ContainingType": "AuctionWebApi.Controllers.ProductsController",
     "Method": "Post",
-    "RelativePath": "api/Product",
+    "RelativePath": "api/Products",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -184,9 +184,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.ProductController",
+    "ContainingType": "AuctionWebApi.Controllers.ProductsController",
     "Method": "Get",
-    "RelativePath": "api/Product/{id}",
+    "RelativePath": "api/Products/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -200,9 +200,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.ProductController",
+    "ContainingType": "AuctionWebApi.Controllers.ProductsController",
     "Method": "Put",
-    "RelativePath": "api/Product/{id}",
+    "RelativePath": "api/Products/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -221,9 +221,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.ProductController",
+    "ContainingType": "AuctionWebApi.Controllers.ProductsController",
     "Method": "Delete",
-    "RelativePath": "api/Product/{id}",
+    "RelativePath": "api/Products/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -237,9 +237,83 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
     "Method": "Get",
-    "RelativePath": "api/User",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "Put",
+    "RelativePath": "api/Users/change-email",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.User.UpdateEmailDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "Put",
+    "RelativePath": "api/Users/change-password",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.User.UpdatePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "Put",
+    "RelativePath": "api/Users/change-username",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.User.UpdateUserNameDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/delete-user",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "api/Users/get",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -247,62 +321,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
-    "Method": "Get",
-    "RelativePath": "api/User/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
-    "Method": "Put",
-    "RelativePath": "api/User/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "userDto",
-        "Type": "AuctionWebApi.Infrastructure.DTOs.Update.UpdateUserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/User/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
     "Method": "LoginPost",
-    "RelativePath": "api/User/login",
+    "RelativePath": "api/Users/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -316,9 +337,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
     "Method": "LogoutPost",
-    "RelativePath": "api/User/logout",
+    "RelativePath": "api/Users/logout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -326,9 +347,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AuctionWebApi.Controllers.UserController",
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
     "Method": "RegisterPost",
-    "RelativePath": "api/User/register",
+    "RelativePath": "api/Users/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -20,22 +20,11 @@ namespace AuctionWebApi.Infrastructure.Helpers
                 .ForMember(entity => entity.Email, opt => opt.MapFrom(dto => dto.Email))
                 .ForMember(entity => entity.Auctions, opt => opt.Ignore())
                 .ForMember(entity => entity.Invoices, opt => opt.Ignore());
-            CreateMap<UpdateUserDto, User>()
-                .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.UserName))
-                .ForMember(entity => entity.Email, opt => opt.MapFrom(dto => dto.Email))
-                .ForMember(entity => entity.Auctions, opt => opt.Ignore())
-                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
 
-            // TODO: Додати мапінґи для аукціону
             CreateMap<AuctionDto, Auction>().ReverseMap();
-            CreateMap<CreateAuctionDto, Auction>()
-                .ForMember(entity=>entity.Products, opt=>opt.Ignore())
-                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
-            CreateMap<UpdateAuctionDto, Auction>()
-                .ForMember(entity => entity.Products, opt => opt.Ignore())
-                .ForMember(entity => entity.Invoices, opt => opt.Ignore());
+            CreateMap<CreateAuctionDto, Auction>();
+            CreateMap<UpdateAuctionDto, Auction>();
 
-            // TODO: Додати мапінґи для чеку
             CreateMap<InvoiceDto, Invoice>().ReverseMap();
             CreateMap<CreateInvoiceDto, Invoice>();
             CreateMap<UpdateInvoiceDto, Invoice>();

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AuctionWebApi.Core.Entities
+﻿namespace AuctionWebApi.Core.Entities
 {
     public class Invoice
     {

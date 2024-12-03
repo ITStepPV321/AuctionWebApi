@@ -1,0 +1,16 @@
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\bin\Release\net7.0\AuctionWebApi.Infrastructure.deps.json
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\bin\Release\net7.0\AuctionWebApi.Infrastructure.dll
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\bin\Release\net7.0\AuctionWebApi.Infrastructure.pdb
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\bin\Release\net7.0\AuctionWebApi.Core.dll
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\bin\Release\net7.0\AuctionWebApi.Core.pdb
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.AssemblyInfo.cs
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.sourcelink.json
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionW.E7824398.Up2Date
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.dll
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\refint\AuctionWebApi.Infrastructure.dll
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\AuctionWebApi.Infrastructure.pdb
+D:\Projects\courses\itstep\c#\ASP.NET\exam\AuctionWebApi.Infrustructure\obj\Release\net7.0\ref\AuctionWebApi.Infrastructure.dll

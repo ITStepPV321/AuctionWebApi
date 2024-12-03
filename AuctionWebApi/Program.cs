@@ -53,7 +53,7 @@ namespace AuctionWebApi
             );
 
             // Add services to the container.
-            string connection = builder.Configuration.GetConnectionString("AuctionDb")!;
+            string connection = builder.Configuration.GetConnectionString("AzureAuctionDb")!;
 
             builder.Services.AddDbContext<AuctionDbContext>(options =>
             {
@@ -72,7 +72,7 @@ namespace AuctionWebApi
 
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto, UpdateProductDto>, ProductService>();
-            builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateProductDto>, AuctionService>();
+            builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto>, AuctionService>();
             builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>, InvoiceService>();
             builder.Services.AddScoped<UserManager<User>>();
             builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
@@ -83,7 +83,8 @@ namespace AuctionWebApi
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => {
+            }).AddJwtBearer(options =>
+            {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -95,6 +96,16 @@ namespace AuctionWebApi
                 };
             });
 
+            builder.Services.AddCors(options => options.AddPolicy(
+                "CorsPolicy",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                }));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -103,6 +114,8 @@ namespace AuctionWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 

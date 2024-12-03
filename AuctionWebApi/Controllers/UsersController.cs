@@ -1,7 +1,7 @@
 ﻿using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
-using AuctionWebApi.Infrastructure.DTOs.Update;
+using AuctionWebApi.Infrastructure.DTOs.Update.User;
 using AuctionWebApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,27 +9,27 @@ namespace AuctionWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult GetAll()
         {
             List<UserDto> users = _userService.GetAll();
 
             return Ok(users);
-        }
+        }*/
 
-        [HttpGet]
+        [HttpGet("get")]
         public IActionResult Get()
         {
-            string userId = User.FindFirst("sub")?.Value!;
+            string userId = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
             
             UserDto user = _userService.GetById(userId);
 
@@ -70,19 +70,39 @@ namespace AuctionWebApi.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] UpdateUserDto userDto)
+        [HttpPut("change-username")]
+        public async Task<IActionResult> Put([FromBody] UpdateUserNameDto userDto)
         {
-            userDto.Id = id;
-            await _userService.Update(userDto);
+            userDto.Id = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
+            await _userService.UpdateUserName(userDto);
 
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpPut("change-email")]
+        public async Task<IActionResult> Put([FromBody] UpdateEmailDto userDto)
         {
-            await _userService.Delete(id);
+            userDto.Id = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
+            await _userService.UpdateEmail(userDto);
+
+            return Ok();
+        }
+
+        [HttpPut("change-password")]
+        public async Task<IActionResult> Put([FromBody] UpdatePasswordDto userDto)
+        {
+            userDto.Id = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
+            await _userService.UpdatePassword(userDto);
+
+            return Ok();
+        }
+
+        [HttpDelete("delete-user")]
+        public async Task<IActionResult> Delete()
+        {
+            string userId = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
+
+            await _userService.Delete(userId);
 
             return Ok();
         }

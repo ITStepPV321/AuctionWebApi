@@ -1,12 +1,13 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace AuctionWebApi.Core.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDb : Migration
+    public partial class AddedPriceColumn : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,6 +50,21 @@ namespace AuctionWebApi.Core.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -163,6 +179,9 @@ namespace AuctionWebApi.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -173,26 +192,10 @@ namespace AuctionWebApi.Core.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Products",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Year = table.Column<int>(type: "int", nullable: false),
-                    AuctionId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Auctions_AuctionId",
-                        column: x => x.AuctionId,
-                        principalTable: "Auctions",
+                        name: "FK_Auctions_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -205,8 +208,7 @@ namespace AuctionWebApi.Core.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    AuctionId = table.Column<int>(type: "int", nullable: true)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,16 +220,49 @@ namespace AuctionWebApi.Core.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Invoices_Auctions_AuctionId",
-                        column: x => x.AuctionId,
-                        principalTable: "Auctions",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Invoices_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "1", 0, "39ebc94b-f830-48c7-ba19-8ca7737f2028", "User", "john.doe@example.com", false, false, null, null, null, null, null, false, "74ef0a82-a0d1-4ea3-b09a-26563b5a1884", false, "john_doe" },
+                    { "2", 0, "835cea07-f17d-4430-ab06-1c3863bc82a9", "User", "jane.doe@example.com", false, false, null, null, null, null, null, false, "765b3676-3ae3-4b4d-9c42-bd84cb057f2c", false, "jane_doe" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Description", "Name", "Year" },
+                values: new object[,]
+                {
+                    { 1, "Description of Product 1", "Product 1", 2023 },
+                    { 2, "Description of Product 2", "Product 2", 2024 },
+                    { 3, "Description of Product 3", "Product 3", 2024 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Auctions",
+                columns: new[] { "Id", "Date", "Price", "ProductId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 11, 23, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7573), 0, 1, null },
+                    { 2, new DateTime(2024, 11, 28, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7650), 0, 2, null },
+                    { 3, new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7653), 0, 3, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Invoices",
+                columns: new[] { "Id", "Date", "ProductId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 12, 2, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7667), 1, "1" },
+                    { 2, new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7671), 2, "2" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -270,14 +305,14 @@ namespace AuctionWebApi.Core.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Auctions_ProductId",
+                table: "Auctions",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Auctions_UserId",
                 table: "Auctions",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Invoices_AuctionId",
-                table: "Invoices",
-                column: "AuctionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Invoices_ProductId",
@@ -288,11 +323,6 @@ namespace AuctionWebApi.Core.Migrations
                 name: "IX_Invoices_UserId",
                 table: "Invoices",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_AuctionId",
-                table: "Products",
-                column: "AuctionId");
         }
 
         /// <inheritdoc />
@@ -314,19 +344,19 @@ namespace AuctionWebApi.Core.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Auctions");
+
+            migrationBuilder.DropTable(
                 name: "Invoices");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "Auctions");
-
-            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }
