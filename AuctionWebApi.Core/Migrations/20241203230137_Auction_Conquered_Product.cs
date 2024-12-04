@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -7,7 +8,7 @@
 namespace AuctionWebApi.Core.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedPriceColumn : Migration
+    public partial class Auction_Conquered_Product : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -180,7 +181,9 @@ namespace AuctionWebApi.Core.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
@@ -192,12 +195,6 @@ namespace AuctionWebApi.Core.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Auctions_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,8 +229,18 @@ namespace AuctionWebApi.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "39ebc94b-f830-48c7-ba19-8ca7737f2028", "User", "john.doe@example.com", false, false, null, null, null, null, null, false, "74ef0a82-a0d1-4ea3-b09a-26563b5a1884", false, "john_doe" },
-                    { "2", 0, "835cea07-f17d-4430-ab06-1c3863bc82a9", "User", "jane.doe@example.com", false, false, null, null, null, null, null, false, "765b3676-3ae3-4b4d-9c42-bd84cb057f2c", false, "jane_doe" }
+                    { "1", 0, "60205c7d-6dec-47d3-b3ad-b5341dd78fb5", "User", "john.doe@example.com", false, false, null, null, null, null, null, false, "b861055b-78f9-4292-ab3f-e5dfb31e805c", false, "john_doe" },
+                    { "2", 0, "a5d165b4-a759-4a1b-9c48-a4b454e2802a", "User", "jane.doe@example.com", false, false, null, null, null, null, null, false, "bd0ab9ff-cdb5-4beb-8896-d72a89b1453d", false, "jane_doe" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Auctions",
+                columns: new[] { "Id", "Date", "Description", "Name", "Price", "UserId", "Year" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 11, 24, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4187), "Description of Product 1", "Product 1", 0, null, 2023 },
+                    { 2, new DateTime(2024, 11, 29, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4256), "Description of Product 2", "Product 2", 0, null, 2024 },
+                    { 3, new DateTime(2024, 12, 4, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4261), "Description of Product 3", "Product 3", 0, null, 2024 }
                 });
 
             migrationBuilder.InsertData(
@@ -247,22 +254,12 @@ namespace AuctionWebApi.Core.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Auctions",
-                columns: new[] { "Id", "Date", "Price", "ProductId", "UserId" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2024, 11, 23, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7573), 0, 1, null },
-                    { 2, new DateTime(2024, 11, 28, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7650), 0, 2, null },
-                    { 3, new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7653), 0, 3, null }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Invoices",
                 columns: new[] { "Id", "Date", "ProductId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 12, 2, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7667), 1, "1" },
-                    { 2, new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7671), 2, "2" }
+                    { 1, new DateTime(2024, 12, 3, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4279), 1, "1" },
+                    { 2, new DateTime(2024, 12, 4, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4284), 2, "2" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -303,11 +300,6 @@ namespace AuctionWebApi.Core.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Auctions_ProductId",
-                table: "Auctions",
-                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Auctions_UserId",

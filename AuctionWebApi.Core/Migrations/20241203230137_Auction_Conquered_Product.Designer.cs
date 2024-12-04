@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionWebApi.Core.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20241203181708_Added-Price-Column")]
-    partial class AddedPriceColumn
+    [Migration("20241203230137_Auction_Conquered_Product")]
+    partial class Auction_Conquered_Product
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,18 +36,24 @@ namespace AuctionWebApi.Core.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -57,23 +63,29 @@ namespace AuctionWebApi.Core.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 11, 23, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7573),
+                            Date = new DateTime(2024, 11, 24, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4187),
+                            Description = "Description of Product 1",
+                            Name = "Product 1",
                             Price = 0,
-                            ProductId = 1
+                            Year = 2023
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 11, 28, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7650),
+                            Date = new DateTime(2024, 11, 29, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4256),
+                            Description = "Description of Product 2",
+                            Name = "Product 2",
                             Price = 0,
-                            ProductId = 2
+                            Year = 2024
                         },
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7653),
+                            Date = new DateTime(2024, 12, 4, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4261),
+                            Description = "Description of Product 3",
+                            Name = "Product 3",
                             Price = 0,
-                            ProductId = 3
+                            Year = 2024
                         });
                 });
 
@@ -107,14 +119,14 @@ namespace AuctionWebApi.Core.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 12, 2, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7667),
+                            Date = new DateTime(2024, 12, 3, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4279),
                             ProductId = 1,
                             UserId = "1"
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 12, 3, 20, 17, 8, 295, DateTimeKind.Local).AddTicks(7671),
+                            Date = new DateTime(2024, 12, 4, 1, 1, 37, 728, DateTimeKind.Local).AddTicks(4284),
                             ProductId = 2,
                             UserId = "2"
                         });
@@ -384,12 +396,12 @@ namespace AuctionWebApi.Core.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "39ebc94b-f830-48c7-ba19-8ca7737f2028",
+                            ConcurrencyStamp = "60205c7d-6dec-47d3-b3ad-b5341dd78fb5",
                             Email = "john.doe@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74ef0a82-a0d1-4ea3-b09a-26563b5a1884",
+                            SecurityStamp = "b861055b-78f9-4292-ab3f-e5dfb31e805c",
                             TwoFactorEnabled = false,
                             UserName = "john_doe"
                         },
@@ -397,12 +409,12 @@ namespace AuctionWebApi.Core.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "835cea07-f17d-4430-ab06-1c3863bc82a9",
+                            ConcurrencyStamp = "a5d165b4-a759-4a1b-9c48-a4b454e2802a",
                             Email = "jane.doe@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "765b3676-3ae3-4b4d-9c42-bd84cb057f2c",
+                            SecurityStamp = "bd0ab9ff-cdb5-4beb-8896-d72a89b1453d",
                             TwoFactorEnabled = false,
                             UserName = "jane_doe"
                         });
@@ -410,17 +422,9 @@ namespace AuctionWebApi.Core.Migrations
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Auction", b =>
                 {
-                    b.HasOne("AuctionWebApi.Core.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("AuctionWebApi.Core.Entities.User", null)
                         .WithMany("Auctions")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("AuctionWebApi.Core.Entities.Invoice", b =>
