@@ -18,13 +18,13 @@ namespace AuctionWebApi.Controllers
             _userService = userService;
         }
 
-        /*[HttpGet]
+        [HttpGet("get-all")]
         public IActionResult GetAll()
         {
             List<UserDto> users = _userService.GetAll();
 
             return Ok(users);
-        }*/
+        }
 
         [HttpGet("get")]
         public IActionResult Get()

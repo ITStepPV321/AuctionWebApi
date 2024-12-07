@@ -71,7 +71,6 @@ namespace AuctionWebApi
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IEntityService<CreateProductDto, ProductDto, UpdateProductDto>, ProductService>();
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto>, AuctionService>();
             builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>, InvoiceService>();
             builder.Services.AddScoped<UserManager<User>>();

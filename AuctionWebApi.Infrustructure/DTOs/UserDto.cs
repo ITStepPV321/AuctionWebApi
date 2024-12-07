@@ -8,7 +8,7 @@ namespace AuctionWebApi.Infrastructure.DTOs
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email {  get; set; }
-        public List<Auction> Auctions { get; set; }
-        public List<Invoice> Invoices { get; set; }
+        public List<int> AuctionIds { get; set; }
+        public List<int> InvoiceIds { get; set; }
     }
 }

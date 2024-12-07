@@ -322,6 +322,16 @@
   },
   {
     "ContainingType": "AuctionWebApi.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Users/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.UsersController",
     "Method": "LoginPost",
     "RelativePath": "api/Users/login",
     "HttpMethod": "POST",

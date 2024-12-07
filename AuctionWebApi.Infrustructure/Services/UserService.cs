@@ -104,12 +104,12 @@ namespace AuctionWebApi.Infrastructure.Services
 
             if (userDto.OldPassword != "string" && userDto.NewPassword != "string")
             {
-                if (userDto.NewPassword == userDto.RepeatPassword)
+                if (userDto.NewPassword != userDto.RepeatPassword)
                 {
                     throw new Exception("The passwords are not the same.");
                 }
 
-                if (userDto.OldPassword== userDto.NewPassword)
+                if (userDto.OldPassword == userDto.NewPassword)
                 {
                     throw new Exception("The password cannot be the same.");
                 }

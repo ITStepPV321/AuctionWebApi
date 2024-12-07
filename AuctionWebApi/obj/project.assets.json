@@ -4655,37 +4655,38 @@
     ]
   },
   "packageFolders": {
-    "/Users/anatolijkos/.nuget/packages/": {}
+    "C:\\Users\\swime\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi/AuctionWebApi.csproj",
+      "projectUniqueName": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj",
       "projectName": "AuctionWebApi",
-      "projectPath": "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi/AuctionWebApi.csproj",
-      "packagesPath": "/Users/anatolijkos/.nuget/packages/",
-      "outputPath": "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi/obj/",
+      "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\AuctionWebApi.csproj",
+      "packagesPath": "C:\\Users\\swime\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/anatolijkos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\swime\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
-        "/usr/local/share/dotnet/sdk/7.0.313/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi.Core/AuctionWebApi.Core.csproj": {
-              "projectPath": "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi.Core/AuctionWebApi.Core.csproj"
+            "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj": {
+              "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Core\\AuctionWebApi.Core.csproj"
             },
-            "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi.Infrustructure/AuctionWebApi.Infrastructure.csproj": {
-              "projectPath": "/Users/anatolijkos/Projects/AuctionWebApi/AuctionWebApi.Infrustructure/AuctionWebApi.Infrastructure.csproj"
+            "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj": {
+              "projectPath": "D:\\Projects\\courses\\itstep\\c#\\ASP.NET\\exam\\AuctionWebApi.Infrustructure\\AuctionWebApi.Infrastructure.csproj"
             }
           }
         }
@@ -4694,6 +4695,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4754,7 +4760,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.313/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

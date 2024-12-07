@@ -10,11 +10,15 @@ namespace AuctionWebApi.Infrastructure.Helpers
     {
         public MapperProfile()
         {
-            CreateMap<ProductDto,Product>().ReverseMap();
-            CreateMap<UpdateProductDto, Product>();
-            CreateMap<CreateProductDto, Product>();
+            CreateMap<UserDto, User>();
+            CreateMap<User, UserDto>()
+                .ForMember(
+                    dto => dto.AuctionIds,
+                    opt => opt.MapFrom(entity => entity.Auctions.Select(auction => auction.Id).ToList()))
+                .ForMember(
+                    dto => dto.InvoiceIds,
+                    opt => opt.MapFrom(entity => entity.Invoices.Select(invoice => invoice.Id)));
 
-            CreateMap<UserDto, User>().ReverseMap();
             CreateMap<CreateUserDto, User>()
                 .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.UserName))
                 .ForMember(entity => entity.Email, opt => opt.MapFrom(dto => dto.Email))
