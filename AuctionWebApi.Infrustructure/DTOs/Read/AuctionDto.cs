@@ -1,6 +1,6 @@
 ﻿using AuctionWebApi.Core.Entities;
 
-namespace AuctionWebApi.Infrastructure.DTOs
+namespace AuctionWebApi.Infrastructure.DTOs.Read
 {
     public class AuctionDto
     {

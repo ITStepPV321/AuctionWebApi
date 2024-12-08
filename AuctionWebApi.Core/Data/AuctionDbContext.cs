@@ -11,6 +11,7 @@ namespace AuctionWebApi.Core.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<BetHistory> BetHistories { get; set; }
 
         public AuctionDbContext(DbContextOptions<AuctionDbContext> options) : base(options)
         {

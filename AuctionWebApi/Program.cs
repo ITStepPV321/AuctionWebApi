@@ -1,7 +1,7 @@
 using AuctionWebApi.Core.Data;
 using AuctionWebApi.Core.Entities;
-using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Read;
 using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Helpers;
 using AuctionWebApi.Infrastructure.Interfaces;
@@ -73,6 +73,7 @@ namespace AuctionWebApi
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto>, AuctionService>();
             builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>, InvoiceService>();
+            builder.Services.AddScoped<IBetHistoryService, BetHistoryService>();
             builder.Services.AddScoped<UserManager<User>>();
             builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
 

@@ -1,6 +1,6 @@
-﻿using AuctionWebApi.Infrastructure.DTOs;
-using AuctionWebApi.Infrastructure.DTOs.Create;
+﻿using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
+using AuctionWebApi.Infrastructure.DTOs.Read;
 using AuctionWebApi.Infrastructure.DTOs.Update.User;
 
 namespace AuctionWebApi.Infrastructure.Interfaces

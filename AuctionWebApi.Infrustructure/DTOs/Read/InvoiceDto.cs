@@ -1,13 +1,12 @@
 ﻿using AuctionWebApi.Core.Entities;
 
-namespace AuctionWebApi.Infrastructure.DTOs
+namespace AuctionWebApi.Infrastructure.DTOs.Read
 {
     public class InvoiceDto
     {
         // TODO: Додати атрибути
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int UserId { get; set; }
-        public int AuctionId { get; set; }
+        public int BetHistoryId { get; set; }
     }
 }

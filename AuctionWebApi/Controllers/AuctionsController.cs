@@ -1,9 +1,7 @@
-﻿using AuctionWebApi.Infrastructure.DTOs;
-using AuctionWebApi.Infrastructure.DTOs.Create;
+﻿using AuctionWebApi.Infrastructure.DTOs.Create;
+using AuctionWebApi.Infrastructure.DTOs.Read;
 using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionWebApi.Controllers
@@ -70,4 +68,3 @@ namespace AuctionWebApi.Controllers
         }
     }
 }
-//

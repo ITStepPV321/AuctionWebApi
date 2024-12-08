@@ -1,8 +1,8 @@
 ﻿using AuctionWebApi.Core.Data;
 using AuctionWebApi.Core.Entities;
-using AuctionWebApi.Infrastructure.DTOs;
 using AuctionWebApi.Infrastructure.DTOs.Create;
 using AuctionWebApi.Infrastructure.DTOs.Login;
+using AuctionWebApi.Infrastructure.DTOs.Read;
 using AuctionWebApi.Infrastructure.DTOs.Update.User;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
