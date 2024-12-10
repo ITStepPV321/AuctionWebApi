@@ -5,10 +5,11 @@ using AuctionWebApi.Infrastructure.DTOs.Read;
 using AuctionWebApi.Infrastructure.DTOs.Update;
 using AuctionWebApi.Infrastructure.Interfaces;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuctionWebApi.Infrastructure.Services
 {
-    public class InvoiceService : IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>
+    public class InvoiceService : IInvoiceService
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
@@ -29,7 +30,20 @@ namespace AuctionWebApi.Infrastructure.Services
         // TODO: Отримати чек за Id
         public InvoiceDto GetById(int id)
         {
-            Invoice invoice = _context.Invoices.FirstOrDefault(x => x.Id == id);
+            Invoice invoice = _context.Invoices.FirstOrDefault(x => x.Id == id)!;
+            return _mapper.Map<InvoiceDto>(invoice);
+        }
+
+        public InvoiceDto GetByBetHistoryId(int betHistoryId)
+        {
+            DbSet<Invoice> invoices = _context.Invoices;
+            Invoice invoice = invoices.FirstOrDefault(i => i.BetHistoryId == betHistoryId)!;
+
+            if (invoice == null)
+            {
+                return null!;
+            }
+
             return _mapper.Map<InvoiceDto>(invoice);
         }
 

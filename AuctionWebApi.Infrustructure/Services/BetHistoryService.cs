@@ -45,6 +45,17 @@ namespace AuctionWebApi.Infrastructure.Services
             return _mapper.Map<MaxBet>(maxBet);
         }
 
+        public List<BetHistoryDto> GetUserWonBets(string userId)
+        {
+            DbSet<BetHistory> bets = _context.BetHistories;
+            IQueryable<BetHistory> usersBets = bets.Where(bh => bh.UserId == userId);
+            IQueryable<IGrouping<int, BetHistory>> groupedUsersBets = usersBets.GroupBy(bh => bh.AuctionId);
+            IQueryable<BetHistory> usersWonBets = groupedUsersBets
+                .Select(gr => gr.OrderByDescending(bh => bh.Date).FirstOrDefault())!;
+
+            return _mapper.Map<List<BetHistoryDto>>(usersWonBets);
+        }
+
         public void CreateBet(CreateBetHistoryDto createBetDto)
         {
             BetHistory betHistory = _mapper.Map<BetHistory>(createBetDto);

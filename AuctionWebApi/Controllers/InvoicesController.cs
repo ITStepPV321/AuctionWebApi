@@ -10,9 +10,9 @@ namespace AuctionWebApi.Controllers
     [ApiController]
     public class InvoicesController : ControllerBase
     {
-        private readonly IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> _invoiceService;
+        private readonly IInvoiceService _invoiceService;
 
-        public InvoicesController(IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto> invoiceService)
+        public InvoicesController(IInvoiceService invoiceService)
         {
             _invoiceService = invoiceService;
         }
@@ -33,6 +33,14 @@ namespace AuctionWebApi.Controllers
         public IActionResult Get(int id)
         {
             InvoiceDto invoice = _invoiceService.GetById(id);
+
+            return Ok(invoice);
+        }
+
+        [HttpGet("get-by-bethistory/{betHistoryId}")]
+        public IActionResult GetByBetHistoryId(int betHistoryId)
+        {
+            InvoiceDto invoice = _invoiceService.GetByBetHistoryId(betHistoryId);
 
             return Ok(invoice);
         }

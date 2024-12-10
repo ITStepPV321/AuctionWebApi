@@ -8,6 +8,7 @@ namespace AuctionWebApi.Infrastructure.Interfaces
         List<BetHistoryDto> GetAll(int auctionId);
         MaxBet GetMaxBet(int auctionId);
         BetHistoryDto Get(int betHistoryId);
+        List<BetHistoryDto> GetUserWonBets(string userId);
         void CreateBet(CreateBetHistoryDto createBetDto);
     }
 }

@@ -46,7 +46,7 @@ namespace AuctionWebApi
                                     Id="Bearer"
                                 }
                             },
-                            new string[]{}
+                            Array.Empty<string>()
                         }
                     });
                 }
@@ -72,7 +72,7 @@ namespace AuctionWebApi
 
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IEntityService<CreateAuctionDto, AuctionDto, UpdateAuctionDto>, AuctionService>();
-            builder.Services.AddScoped<IEntityService<CreateInvoiceDto, InvoiceDto, UpdateInvoiceDto>, InvoiceService>();
+            builder.Services.AddScoped<IInvoiceService, InvoiceService>();
             builder.Services.AddScoped<IBetHistoryService, BetHistoryService>();
             builder.Services.AddScoped<UserManager<User>>();
             builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();

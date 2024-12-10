@@ -9,7 +9,5 @@ namespace AuctionWebApi.Infrastructure.Interfaces
         void Create(CreateDto createDto);
         void Update(UpdateDto dto);
         void Delete(Dto dto);
-        
-        //void Create(ProductDto productDto);
     }
 }

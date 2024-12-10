@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace AuctionWebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -42,6 +40,16 @@ namespace AuctionWebApi.Controllers
             MaxBet maxBet = _betHistoryService.GetMaxBet(auctionId);
 
             return Ok(maxBet);
+        }
+
+        [HttpGet("get-user-won-bets")]
+        public IActionResult GetUserWonBets()
+        {
+            string userId = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value!;
+
+            List<BetHistoryDto> usersWonBetHistories = _betHistoryService.GetUserWonBets(userId);
+
+            return Ok(usersWonBetHistories);
         }
 
         [HttpPost("create-bet")]
