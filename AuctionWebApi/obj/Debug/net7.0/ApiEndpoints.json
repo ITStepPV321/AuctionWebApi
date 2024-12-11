@@ -112,6 +112,22 @@
   },
   {
     "ContainingType": "AuctionWebApi.Controllers.BetHistoriesController",
+    "Method": "GetFullMaxBet",
+    "RelativePath": "api/BetHistories/get-full-max-bet/{auctionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "auctionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuctionWebApi.Controllers.BetHistoriesController",
     "Method": "GetMaxBet",
     "RelativePath": "api/BetHistories/get-max-bet/{auctionId}",
     "HttpMethod": "GET",

@@ -45,6 +45,17 @@ namespace AuctionWebApi.Infrastructure.Services
             return _mapper.Map<MaxBet>(maxBet);
         }
 
+        public BetHistoryDto GetFullMaxBet(int auctionId)
+        {
+            DbSet<BetHistory> betHistories = _context.BetHistories;
+            IIncludableQueryable<BetHistory, User> betHistoriesWithUsers = betHistories.Include(bh => bh.User);
+            IQueryable<BetHistory> auctionBetHistory = betHistoriesWithUsers.Where(bh => bh.AuctionId == auctionId);
+            IOrderedQueryable<BetHistory> orderedBetHistoryByDate = auctionBetHistory.OrderByDescending(bet => bet.Date)!;
+            BetHistory fullMaxBet = orderedBetHistoryByDate.FirstOrDefault()!;
+
+            return _mapper.Map<BetHistoryDto>(fullMaxBet);
+        }
+
         public List<BetHistoryDto> GetUserWonBets(string userId)
         {
             DbSet<BetHistory> bets = _context.BetHistories;

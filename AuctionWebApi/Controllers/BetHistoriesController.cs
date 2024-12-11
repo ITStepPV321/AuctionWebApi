@@ -42,6 +42,14 @@ namespace AuctionWebApi.Controllers
             return Ok(maxBet);
         }
 
+        [HttpGet("get-full-max-bet/{auctionId}")]
+        public IActionResult GetFullMaxBet(int auctionId)
+        {
+            BetHistoryDto fullMaxBet = _betHistoryService.GetFullMaxBet(auctionId);
+
+            return Ok(fullMaxBet);
+        }
+
         [HttpGet("get-user-won-bets")]
         public IActionResult GetUserWonBets()
         {
